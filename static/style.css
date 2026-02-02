@@ -1,15 +1,197 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* BODY */
 body {
-  font-family: Arial;
-  text-align: center;
-  padding: 30px;
+    background-color: #F4F6F8;
+    color: #4A4A4A;
+    min-height: 100vh;
 }
 
-input, button {
-  display: block;
-  margin: 10px auto;
-  padding: 10px;
+/* CONTAINER */
+.container {
+    max-width: 420px;
+    margin: 60px auto;
+    background: #FFFFFF;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
-button {
-  cursor: pointer;
+/* TÍTULOS */
+h2, h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0A6ED1;
+}
+
+/* INPUTS */
+input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #DADADA;
+    font-size: 15px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #0A6ED1;
+}
+
+/* BOTÕES */
+button, .btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #0A6ED1, #2FA4A9);
+    color: #FFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+button:hover, .btn:hover {
+    opacity: 0.9;
+}
+
+/* AÇÕES DE PONTO */
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.actions a {
+    flex: 1;
+    text-align: center;
+    padding: 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #FFF;
+    font-weight: 500;
+}
+
+.actions a.entrada {
+    background: #2FA4A9;
+}
+
+.actions a.saida {
+    background: #0A6ED1;
+}
+
+/* LISTA DE REGISTROS */
+.registros {
+    list-style: none;
+}
+
+.registros li {
+    background: #F9FAFB;
+    border-left: 5px solid #0A6ED1;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* ADMIN */
+.registros li.admin {
+    border-left-color: #2FA4A9;
+}
+
+/* LOGOUT */
+.logout {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #999;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.logout:hover {
+    color: #0A6ED1;
+}
+
+/* RESPONSIVO */
+@media (max-width: 480px) {
+    .container {
+        margin: 30px 15px;
+        padding: 25px;
+    }
+}
+
+
+/* FILTROS ADMIN */
+.filters {
+    margin-bottom: 20px;
+}
+
+.filters form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filters select,
+.filters input {
+    flex: 1;
+    min-width: 150px;
+}
+
+/* TABELA */
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #FFFFFF;
+}
+
+thead {
+    background: #0A6ED1;
+    color: #FFF;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    font-size: 14px;
+}
+
+tr:nth-child(even) {
+    background: #F4F6F8;
+}
+
+/* BADGES */
+.badge {
+    padding: 6px 10px;
+    border-radius: 20px;
+    color: #FFF;
+    font-size: 12px;
+}
+
+.badge.entrada {
+    background: #2FA4A9;
+}
+
+.badge.saida {
+    background: #0A6ED1;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    th, td {
+        font-size: 13px;
+    }
 }

@@ -1,14 +1,68 @@
-<h2>Relatório Geral</h2>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Administração - Ponto Médico</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
 
-<table border="1">
-  <tr>
-    <th>Médico</th>
-    <th>Tipo</th>
-    <th>Data</th>
-  </tr>
-  <tbody id="tabela"></tbody>
-</table>
+<div class="container" style="max-width: 900px;">
+    <h2>Administração de Ponto</h2>
 
-<a href="/logout">Sair</a>
+    <!-- FILTROS -->
+    <div class="filters">
+        <form method="GET">
+            <select name="medico">
+                <option value="">Todos os médicos</option>
+                {% for m in medicos %}
+                    <option value="{{ m }}">{{ m }}</option>
+                {% endfor %}
+            </select>
 
-<script src="/static/app.js"></script>
+            <input type="date" name="inicio">
+            <input type="date" name="fim">
+
+            <button>Filtrar</button>
+        </form>
+    </div>
+
+    <!-- TABELA -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Médico</th>
+                    <th>Tipo</th>
+                    <th>Data / Hora</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in pontos %}
+                <tr>
+                    <td>{{ p.username }}</td>
+                    <td>
+                        <span class="badge {{ 'entrada' if p.tipo == 'Entrada' else 'saida' }}">
+                            {{ p.tipo }}
+                        </span>
+                    </td>
+                    <td>{{ p.datahora }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- RELATÓRIO -->
+    <form method="POST" action="/admin/relatorio">
+        <input type="hidden" name="medico" value="{{ request.args.get('medico','') }}">
+        <input type="hidden" name="inicio" value="{{ request.args.get('inicio','') }}">
+        <input type="hidden" name="fim" value="{{ request.args.get('fim','') }}">
+        <button class="btn">Gerar Relatório do Período</button>
+    </form>
+
+    <a href="/logout" class="logout">Sair</a>
+</div>
+
+</body>
+</html>

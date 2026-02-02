@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-  <title>Ponto Médico</title>
-  <link rel="stylesheet" href="/static/style.css">
+    <meta charset="UTF-8">
+    <title>Login - Ponto Médico</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-  <h2>Ponto Médico</h2>
 
-  <input id="username" placeholder="Usuário">
-  <input id="password" type="password" placeholder="Senha">
-  <button onclick="login()">Entrar</button>
+<div class="container">
+    <h2>Ponto Médico</h2>
 
-  <p id="msg"></p>
+    <form method="POST">
+        <input type="text" name="username" placeholder="Usuário" required>
+        <input type="password" name="senha" placeholder="Senha" required>
+        <button type="submit">Entrar</button>
+    </form>
+</div>
 
-  <script src="/static/app.js"></script>
 </body>
 </html>
