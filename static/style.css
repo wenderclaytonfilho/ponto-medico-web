@@ -1,0 +1,15 @@
+body {
+  font-family: Arial;
+  text-align: center;
+  padding: 30px;
+}
+
+input, button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+button {
+  cursor: pointer;
+}
